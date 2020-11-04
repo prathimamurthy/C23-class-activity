@@ -3,7 +3,7 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 
 var engine, world;
-var ground, box1;
+var myground, box1;
 
 var box2;
 
@@ -12,17 +12,11 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-    var ground_options ={
-        isStatic: true
-    }
+    myground = new ground(200,400,400,6);
+    box1= new box(200,300,40,40);
+    box2 = new box(200,100,40,60);
 
-    ground = Bodies.rectangle(200,390,200,20,ground_options);
-    World.add(world,ground);
-
-    box1= new box(200,300,10,40);
-    box2 = new box(300,300,40,60);
-
-  //  console.log(box);
+  console.log(box1);
 }
 
 function draw(){
@@ -30,9 +24,8 @@ function draw(){
     Engine.update(engine);
 
    
-    rectMode(CENTER);
-   rect(ground.position.x,ground.position.y,400,20);
-    
+   
+    myground.display();
    box1.display();
    box2.display();  
 

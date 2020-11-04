@@ -19,8 +19,16 @@ constructor(x, y, width, height){
 display(){
 
     var position = this.box.position;
+    var angle= this.box.angle;
+
+    push();
+    translate(position.x, position.y)
+    rotate(angle)
+    fill("blue")
+    angleMode(RADIANS);
     rectMode(CENTER);
-    rect(position.x,position.y,30,20);
+    rect(0,0, this.width,this.height);
+    pop();
 }
 
 
